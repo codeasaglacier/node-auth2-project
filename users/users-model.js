@@ -1,4 +1,4 @@
-const bcrypt = require( "../node_modules/bcryptjs" )
+const bcrypt = require( "bcryptjs" )
 const db = require( "../database/config" )
 
 async function add( user ) {
@@ -14,6 +14,7 @@ function find() {
 function findBy( filter ) {
   return db( "users" )
   .select( "id", "username", "password" )
+  .where( filter )
 }
 
 function findById( id ) {
